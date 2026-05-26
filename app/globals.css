@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-fg: #18181b;
+  --color-muted: #71717a;
+  --color-border: #e4e4e7;
+  --color-accent: #0071e3;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-bg: #0a0a0b;
+  --color-surface: #111114;
+  --color-fg: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-border: #26262b;
+  --color-accent: #2997ff;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  scroll-behavior: smooth;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  letter-spacing: -0.011em;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
